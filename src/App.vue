@@ -1,9 +1,10 @@
 <template>
     <div id="app">
-        <h1>count: {{count}}</h1>
+        <!-- <h1>count: {{count}}</h1>
         <div>
             <button @click="countIncrease">点我</button>
-        </div>
+        </div>-->
+        <router-view></router-view>
     </div>
 </template>
 
