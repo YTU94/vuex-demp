@@ -21,6 +21,11 @@ const router = new VueRouter({
             path: "/userCenter",
             name: "userCenter",
             component: () => import("./pages/userCenter.vue")
+        },
+        {
+            path: "/course/:id",
+            name: "course",
+            component: () => import("./pages/course.vue")
         }
     ]
 })

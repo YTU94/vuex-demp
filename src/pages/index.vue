@@ -41,7 +41,8 @@ export default {
                 title: "学习vuex",
                 description: "2312",
                 charge: "",
-                permission: ""
+                userStatus: 0,
+                vipLevel: 0
             },
             {
                 id: "2",
@@ -50,7 +51,8 @@ export default {
                 title: "实战课程",
                 description: "2312",
                 charge: "实战课程",
-                permission: "vip"
+                userStatus: 1,
+                vipLevel: 0
             },
             {
                 id: "3",
@@ -59,7 +61,8 @@ export default {
                 title: "v12会员专享课程",
                 description: "2312",
                 charge: "v12会员专享",
-                permission: 12
+                userStatus: 2,
+                vipLevel: 12
             }
         ];
     },
@@ -75,30 +78,14 @@ export default {
             this.$router.push("./userCenter");
         },
         goVideoList(e) {
-            const r = this.checkPermission(e.permission);
-            if (r) {
-                alert(r);
-            } else {
-                this.$router.push({
-                    name: "course",
-                    params: {
-                        id: e.id
-                    }
-                });
-            }
+            this.$router.push({
+                name: "course",
+                params: {
+                    id: e.id
+                }
+            });
         },
-        checkPermission(p) {
-            if (!p) return "";
-            if (p === "vip") {
-                if (this.userStatus !== "vip") {
-                    return "您不是vip，无权观看";
-                }
-            } else if (typeof p === "number") {
-                if (this.vipLevel < p) {
-                    return "您的vip等级不够，无权观看";
-                }
-            }
-        }
+        checkPermission(p) {}
     }
 };
 </script>

@@ -38,11 +38,31 @@ export default {
     },
     mounted() {
         this.vipList = [
-            { name: "普通会员", charge: "10.00", value: "vip", key: "vip" },
-            { name: "VIP1会员", charge: "50.00", value: "1", key: "level" },
-            { name: "VIP3会员", charge: "100.00", value: "3", key: "level" },
-            { name: "VIP9会员", charge: "1000.00", value: "9", key: "level" },
-            { name: "VIP12会员", charge: "10000.00", value: "12", key: "level" }
+            { name: "vip会员", charge: "10.00", vipLevel: 0, userStatus: 1 },
+            {
+                name: "高级VIP1会员",
+                charge: "50.00",
+                vipLevel: 1,
+                userStatus: 2
+            },
+            {
+                name: "高级VIP3会员",
+                charge: "100.00",
+                vipLevel: 3,
+                userStatus: 2
+            },
+            {
+                name: "高级VIP9会员",
+                charge: "1000.00",
+                vipLevel: 9,
+                userStatus: 2
+            },
+            {
+                name: "高级VIP12会员",
+                charge: "10000.00",
+                vipLevel: 12,
+                userStatus: 2
+            }
         ];
     },
     computed: {
@@ -52,7 +72,7 @@ export default {
     methods: {
         recharge() {},
         upgrade() {},
-        buy() {}
+        buy(e) {}
     }
 };
 </script>
