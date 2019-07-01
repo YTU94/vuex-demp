@@ -59,6 +59,10 @@ export default {
                     account: that.form.account,
                     password: that.form.password
                 });
+                store.commit("setMemberInfo", {
+                    userStatus: 1,
+                    vipLevel: 0
+                });
                 that.$router.push("./");
             }, 500);
         }

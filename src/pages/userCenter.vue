@@ -4,11 +4,11 @@
         <div class>
             <section class="user-info">
                 <label for class="user-info-label">账号</label>
-                <span class="user-info-value"></span>
+                <span class="user-info-value">{{userInfo.account}}</span>
             </section>
             <section class="user-info">
                 <label for class="user-info-label">身份</label>
-                <span class="user-info-value"></span>
+                <span class="user-info-value">{{memberInfo}}</span>
             </section>
             <section class="vip-list">
                 <ul class="container">
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
 export default {
     data() {
         return {
@@ -43,6 +44,10 @@ export default {
             { name: "VIP9会员", charge: "1000.00", value: "9", key: "level" },
             { name: "VIP12会员", charge: "10000.00", value: "12", key: "level" }
         ];
+    },
+    computed: {
+        ...mapState(["userInfo"]),
+        ...mapGetters(["memberInfo"])
     },
     methods: {
         recharge() {},

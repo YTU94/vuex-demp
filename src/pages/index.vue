@@ -3,7 +3,7 @@
         <h1>你好</h1>
         <p class="text">
             尊敬的
-            <span style="color: red;">用户</span>，欢迎来到德莱联盟！
+            <span style="color: red;">{{memberInfo}}用户</span>，欢迎来到德莱联盟！
         </p>
 
         <div class>
@@ -20,7 +20,7 @@
 
 <script>
 import card from "../components/card";
-
+import { mapGetters, mapState } from "vuex";
 export default {
     components: {
         card
@@ -63,7 +63,13 @@ export default {
             }
         ];
     },
-    mounted() {},
+    computed: {
+        ...mapState(["userStatus", "vipLevel"]),
+        ...mapGetters(["memberInfo"])
+    },
+    mounted() {
+        console.log(this.userStatus, this.vipLevel, "---->");
+    },
     methods: {
         recharge() {
             this.$router.push("./userCenter");
