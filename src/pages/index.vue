@@ -19,9 +19,6 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
-// import store from "../store";
-
 import card from "../components/card";
 
 export default {
@@ -33,10 +30,7 @@ export default {
             courseList: []
         };
     },
-    // computed: {
-    //     ...mapGetters(["memberInfo"]),
-    //     ...mapState(["vipLevel", "userStatus"])
-    // },
+
     created() {
         // Mock
         this.courseList = [
@@ -69,9 +63,7 @@ export default {
             }
         ];
     },
-    mounted() {
-        // console.log(store, this);
-    },
+    mounted() {},
     methods: {
         recharge() {
             this.$router.push("./userCenter");

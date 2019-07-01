@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import store from "../store";
 
 export default {
     data() {
@@ -52,15 +53,14 @@ export default {
                 return false;
                 alert("请填写账号密码");
             }
-
-            store.commit("login", {
-                userInfo: {
-                    name: "1",
-                    mobile: "1283123"
-                },
-                userStatus: "normal"
-            });
-            this.$router.push("./");
+            const that = this;
+            setTimeout(() => {
+                store.commit("login", {
+                    account: that.form.account,
+                    password: that.form.password
+                });
+                that.$router.push("./");
+            }, 500);
         }
     }
 };
