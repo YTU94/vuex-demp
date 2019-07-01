@@ -16,9 +16,13 @@ const router = new VueRouter({
             path: "/",
             name: "index",
             component: () => import("./pages/index.vue")
+        },
+        {
+            path: "/userCenter",
+            name: "userCenter",
+            component: () => import("./pages/userCenter.vue")
         }
     ]
 })
-
 
 export default router
