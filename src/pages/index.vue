@@ -78,6 +78,11 @@ export default {
             this.$router.push("./userCenter");
         },
         goVideoList(e) {
+            const r = this.checkPermission(e);
+            if (r) {
+                alert(r);
+                return;
+            }
             this.$router.push({
                 name: "course",
                 params: {
@@ -85,7 +90,14 @@ export default {
                 }
             });
         },
-        checkPermission(p) {}
+        checkPermission(e) {
+            if (!e) return "";
+            if (e.userStatus > this.userStatus) {
+                return "您的会员权限不够";
+            } else if (e.vipLevel > this.vipLevel) {
+                return "你的会员等级不够";
+            }
+        }
     }
 };
 </script>

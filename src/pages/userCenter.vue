@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import store from "../store";
 import { mapState, mapGetters } from "vuex";
 export default {
     data() {
@@ -70,9 +71,11 @@ export default {
         ...mapGetters(["memberInfo"])
     },
     methods: {
-        recharge() {},
-        upgrade() {},
-        buy(e) {}
+        buy(e) {
+            store.dispatch("buyVip", e).then(res => {
+                alert(res);
+            });
+        }
     }
 };
 </script>
