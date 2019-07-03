@@ -16,24 +16,20 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
 import store from "../store";
-
 export default {
     data() {
         return {};
     },
     methods: {
         share() {
-            let vm = this;
-            let r = confirm("课程地址：http://www.baidu.com, 感谢分享！");
-            if (r == true) {
-                console.log("ok");
-                store.dispatch("getFreeVip", { v: "vip", vm }).then(() => {
-                    alert("分享成功");
+            let c = confirm("课程分享：http://www.muke.com, 感谢分享！");
+            if (c == true) {
+                store.dispatch("getFreeVip").then(res => {
+                    alert(res);
                 });
             } else {
-                console.log("Cancel");
+                console.log("cancle");
             }
         }
     }
