@@ -1,10 +1,7 @@
 <template>
     <div id="app">
-        <!-- <h1>count: {{count}}</h1>
-        <div>
-            <button @click="countIncrease">点我</button>
-        </div>-->
-        <router-view></router-view>
+        <img alt="Vue logo" src="./assets/logo.png" />
+        <HelloWorld msg="Welcome to Your Vue.js App" />
     </div>
 </template>
 
@@ -19,11 +16,6 @@ export default {
     computed: {
         count() {
             return this.$store.state.count;
-        }
-    },
-    methods: {
-        countIncrease() {
-            this.$store.commit("countIncrease", 100);
         }
     }
 };
